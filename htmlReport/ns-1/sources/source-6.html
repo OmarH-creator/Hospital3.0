@@ -1,0 +1,271 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > InventoryItem</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.hospitalsystemgpt</a>
+</div>
+
+<h1>Coverage Summary for Class: InventoryItem (com.example.hospitalsystemgpt)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">InventoryItem</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (32/32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (28/28)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$8E8WD5tn</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$cAJImu6M</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$eXYQWUPf</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$fJK9y8Gd</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$Hlmdi7jo</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$ljl3kXzI</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$MglfDDp9</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$reOFbWaQ</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$RfuNo5No</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$V06ao2AE</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryItem$MockitoMock$v0eu5x2j$auxiliary$vY5xffum</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (32/32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (28/28)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.hospitalsystemgpt;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;public class InventoryItem {
+&nbsp;    private final String id;
+&nbsp;    private String name;
+&nbsp;    private int quantity;
+&nbsp;    private double unitPrice;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructs an InventoryItem with the given id, name, quantity, and unit price.
+&nbsp;     * Validates that id and name are not null/blank, quantity is non-negative, and unit price is positive.
+&nbsp;     */
+<b class="fc">&nbsp;    public InventoryItem(String id, String name, int quantity, double unitPrice) {</b>
+<b class="fc">&nbsp;        if (id == null || id.isBlank()) throw new IllegalArgumentException(&quot;ID cannot be null or blank&quot;);</b>
+<b class="fc">&nbsp;        if (name == null || name.isBlank()) throw new IllegalArgumentException(&quot;Name cannot be null or blank&quot;);</b>
+<b class="fc">&nbsp;        if (quantity &lt; 0) throw new IllegalArgumentException(&quot;Quantity cannot be negative&quot;);</b>
+<b class="fc">&nbsp;        if (unitPrice &lt;= 0) throw new IllegalArgumentException(&quot;Unit price must be positive&quot;);</b>
+<b class="fc">&nbsp;        this.id = id;</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.quantity = quantity;</b>
+<b class="fc">&nbsp;        this.unitPrice = unitPrice;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the inventory item&#39;s unique ID.
+&nbsp;     */
+<b class="fc">&nbsp;    public String getItemId() { return id; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the name of the inventory item.
+&nbsp;     */
+<b class="fc">&nbsp;    public String getName() { return name; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the name of the inventory item after validating it is not null or blank.
+&nbsp;     */
+&nbsp;    public void setName(String name) {
+<b class="fc">&nbsp;        if (name == null || name.isBlank()) throw new IllegalArgumentException(&quot;Name cannot be null or blank&quot;);</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the current quantity in stock.
+&nbsp;     */
+<b class="fc">&nbsp;    public int getQuantity() { return quantity; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the unit price of the item.
+&nbsp;     */
+<b class="fc">&nbsp;    public double getUnitPrice() { return unitPrice; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the unit price after validating it is positive.
+&nbsp;     */
+&nbsp;    public void setUnitPrice(double unitPrice) {
+<b class="fc">&nbsp;        if (unitPrice &lt;= 0) throw new IllegalArgumentException(&quot;Unit price must be positive&quot;);</b>
+<b class="fc">&nbsp;        this.unitPrice = unitPrice;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds the specified amount to the quantity in stock.
+&nbsp;     */
+&nbsp;    public void addStock(int amount) {
+<b class="fc">&nbsp;        if (amount &lt;= 0) throw new IllegalArgumentException(&quot;Amount to add must be positive&quot;);</b>
+<b class="fc">&nbsp;        quantity += amount;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Removes the specified amount from the quantity in stock.
+&nbsp;     */
+&nbsp;    public void removeStock(int amount) {
+<b class="fc">&nbsp;        if (amount &lt;= 0) throw new IllegalArgumentException(&quot;Amount to remove must be positive&quot;);</b>
+<b class="fc">&nbsp;        if (amount &gt; quantity) throw new IllegalArgumentException(&quot;Not enough stock to remove&quot;);</b>
+<b class="fc">&nbsp;        quantity -= amount;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns true if the quantity is less than or equal to the specified threshold.
+&nbsp;     */
+&nbsp;    public boolean isLowStock(int threshold) {
+<b class="fc">&nbsp;        return quantity &lt;= threshold;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks equality based on item ID.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object o) {
+<b class="fc">&nbsp;        if (this == o) return true;</b>
+<b class="fc">&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc">&nbsp;        InventoryItem that = (InventoryItem) o;</b>
+<b class="fc">&nbsp;        return id.equals(that.id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the hash code for the inventory item, based on ID.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+<b class="fc">&nbsp;        return Objects.hash(id);</b>
+&nbsp;    }
+&nbsp;} 
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-04-19 00:18</div>
+</div>
+</body>
+</html>

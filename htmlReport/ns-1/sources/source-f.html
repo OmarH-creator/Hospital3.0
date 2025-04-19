@@ -1,0 +1,127 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > BillingService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.hospitalsystemgpt</a>
+</div>
+
+<h1>Coverage Summary for Class: BillingService (com.example.hospitalsystemgpt)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">BillingService$MockitoMock$qSzSsKRF</td>
+  </tr>
+  <tr>
+    <td class="name">BillingService$MockitoMock$qSzSsKRF$auxiliary$CrMQmM0K</td>
+  </tr>
+  <tr>
+    <td class="name">BillingService$MockitoMock$qSzSsKRF$auxiliary$gu86el1D</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.hospitalsystemgpt;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Service interface for managing bills.
+&nbsp; */
+&nbsp;public interface BillingService {
+&nbsp;    /**
+&nbsp;     * Creates a new bill.
+&nbsp;     * @param bill the bill to create
+&nbsp;     * @throws IllegalArgumentException if the bill is null or already exists
+&nbsp;     */
+&nbsp;    void createBill(Bill bill);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Finds a bill by its unique ID.
+&nbsp;     * @param id the bill ID
+&nbsp;     * @return the Bill if found, or null if not found
+&nbsp;     */
+&nbsp;    Bill findBillById(String id);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a list of all bills.
+&nbsp;     * @return list of bills
+&nbsp;     */
+&nbsp;    List&lt;Bill&gt; getAllBills();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Updates an existing bill.
+&nbsp;     * @param bill the bill with updated information
+&nbsp;     * @throws IllegalArgumentException if the bill is null or does not exist
+&nbsp;     */
+&nbsp;    void updateBill(Bill bill);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Marks a bill as paid with a payment reference.
+&nbsp;     * @param id the bill ID
+&nbsp;     * @param paymentReference the payment reference
+&nbsp;     * @throws IllegalArgumentException if the bill does not exist or is already paid
+&nbsp;     */
+&nbsp;    void markBillAsPaid(String id, String paymentReference);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Deletes a bill by its ID.
+&nbsp;     * @param id the bill ID
+&nbsp;     * @return true if the bill was deleted, false if not found
+&nbsp;     */
+&nbsp;    boolean deleteBill(String id);
+&nbsp;} 
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-04-19 00:18</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > InventoryService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.hospitalsystemgpt</a>
+</div>
+
+<h1>Coverage Summary for Class: InventoryService (com.example.hospitalsystemgpt)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">InventoryService$MockitoMock$Rj3wx3YZ</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryService$MockitoMock$Rj3wx3YZ$auxiliary$D4uYKuUu</td>
+  </tr>
+  <tr>
+    <td class="name">InventoryService$MockitoMock$Rj3wx3YZ$auxiliary$MOepUXNQ</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.hospitalsystemgpt;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Service interface for managing inventory items.
+&nbsp; */
+&nbsp;public interface InventoryService {
+&nbsp;    /**
+&nbsp;     * Adds a new inventory item.
+&nbsp;     * @param item the inventory item to add
+&nbsp;     * @throws IllegalArgumentException if the item is null or already exists
+&nbsp;     */
+&nbsp;    void addInventoryItem(InventoryItem item);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Finds an inventory item by its unique ID.
+&nbsp;     * @param id the item ID
+&nbsp;     * @return the InventoryItem if found, or null if not found
+&nbsp;     */
+&nbsp;    InventoryItem findInventoryItemById(String id);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a list of all inventory items.
+&nbsp;     * @return list of inventory items
+&nbsp;     */
+&nbsp;    List&lt;InventoryItem&gt; getAllInventoryItems();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Updates an existing inventory item.
+&nbsp;     * @param item the inventory item with updated information
+&nbsp;     * @throws IllegalArgumentException if the item is null or does not exist
+&nbsp;     */
+&nbsp;    void updateInventoryItem(InventoryItem item);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Deletes an inventory item by its ID.
+&nbsp;     * @param id the item ID
+&nbsp;     * @return true if the item was deleted, false if not found
+&nbsp;     */
+&nbsp;    boolean deleteInventoryItem(String id);
+&nbsp;} 
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-04-19 00:18</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+@startuml HospitalAppFSM
+
+' Define main screen states
+state RoleSelection
+state Dashboard
+state PatientManagement
+state AppointmentScheduling
+state MedicalRecords
+state BillingManagement
+state InventoryManagement
+
+' --- Define Dialog & Confirmation States ---
+state AddPatientDialog
+state EditPatientDialog
+state ConfirmDeletePatient
+state AddAppointmentDialog
+state EditAppointmentDialog
+state ConfirmDeleteAppointment
+state AddMedicalRecordDialog
+state EditMedicalRecordDialog
+state AddBillDialog
+' Patient Selection step for new Bill
+state AddLineItemDialog
+state EnterPaymentRefDialog
+state ConfirmDeleteBill
+state AddInventoryItemDialog
+state EditInventoryItemDialog
+state EnterStockAmountDialog
+' For both Add and Remove Stock
+state ConfirmDeleteInventoryItem
+
+
+' --- Define initial state ---
+[*] --> RoleSelection : Start Application
+
+' --- Transitions from RoleSelection ---
+RoleSelection --> Dashboard : Click 'Doctor' Button
+RoleSelection --> Dashboard : Click 'Admin' Button
+
+' --- Transitions from Dashboard ---
+Dashboard --> PatientManagement : Click 'Patient Management'\n[Role=Doctor]
+Dashboard --> AppointmentScheduling : Click 'Appointment Scheduling'\n[Role=Doctor]
+Dashboard --> MedicalRecords : Click 'Medical Records'\n[Role=Doctor]
+Dashboard --> BillingManagement : Click 'Billing'\n[Role=Admin]
+Dashboard --> InventoryManagement : Click 'Inventory'\n[Role=Admin]
+Dashboard --> RoleSelection : Click 'Logout'
+
+' --- Patient Management Transitions ---
+PatientManagement --> Dashboard : Click 'Back'
+PatientManagement --> AddPatientDialog : Click '+ Add'
+PatientManagement --> EditPatientDialog : Click 'Edit' (on item)
+PatientManagement --> ConfirmDeletePatient : Click 'Delete' (on item)
+
+' Patient Dialog Flows
+AddPatientDialog --> PatientManagement : OK (Patient Added) / Cancel
+EditPatientDialog --> PatientManagement : OK (Name Updated) / Cancel
+ConfirmDeletePatient --> PatientManagement : Click 'Yes' / deletePatient()
+ConfirmDeletePatient --> PatientManagement : Click 'No'
+
+
+' --- Appointment Scheduling Transitions ---
+AppointmentScheduling --> Dashboard : Click 'Back'
+AppointmentScheduling --> AddAppointmentDialog : Click '+ Add'
+AppointmentScheduling --> EditAppointmentDialog : Click 'Edit' (on item)
+AppointmentScheduling --> ConfirmDeleteAppointment : Click 'Delete' (on item)
+AddAppointmentDialog --> AppointmentScheduling : OK / Cancel
+EditAppointmentDialog --> AppointmentScheduling : OK / Cancel
+ConfirmDeleteAppointment --> AppointmentScheduling : Click 'Yes' / deleteAppointment()
+ConfirmDeleteAppointment --> AppointmentScheduling : Click 'No'
+
+' --- Medical Records Transitions ---
+MedicalRecords --> Dashboard : Click 'Back'
+MedicalRecords --> AddMedicalRecordDialog : Click '+ Add'
+MedicalRecords --> EditMedicalRecordDialog : Click 'Edit' (on item)
+MedicalRecords --> ConfirmDeleteMedicalRecord : Click 'Delete' (on item)
+AddMedicalRecordDialog --> MedicalRecords : OK / Cancel
+EditMedicalRecordDialog --> MedicalRecords : OK / Cancel
+ConfirmDeleteMedicalRecord --> MedicalRecords : Click 'Yes' / deleteMedicalRecord()
+ConfirmDeleteMedicalRecord --> MedicalRecords : Click 'No'
+
+' --- Billing Management Transitions ---
+BillingManagement --> Dashboard : Click 'Back'
+BillingManagement --> AddBillDialog : Click '+ Add'
+BillingManagement --> AddLineItemDialog : Click 'Add Item' (on bill)
+BillingManagement --> EnterPaymentRefDialog : Click 'Mark Paid' (on bill)
+BillingManagement --> ConfirmDeleteBill : Click 'Delete' (on bill)
+AddBillDialog --> BillingManagement : OK / Cancel
+AddLineItemDialog --> BillingManagement : OK / Cancel
+EnterPaymentRefDialog --> BillingManagement : OK / Cancel
+ConfirmDeleteBill --> BillingManagement : Click 'Yes' / deleteBill()
+ConfirmDeleteBill --> BillingManagement : Click 'No'
+
+' --- Inventory Management Transitions ---
+InventoryManagement --> Dashboard : Click 'Back'
+InventoryManagement --> AddInventoryItemDialog : Click '+ Add'
+InventoryManagement --> EditInventoryItemDialog : Click 'Edit' (on item)
+InventoryManagement --> EnterStockAmountDialog : Click '+ Stock' / '- Stock'
+InventoryManagement --> ConfirmDeleteInventoryItem : Click 'Delete' (on item)
+AddInventoryItemDialog --> InventoryManagement : OK / Cancel
+EditInventoryItemDialog --> InventoryManagement : OK / Cancel
+EnterStockAmountDialog --> InventoryManagement : OK / Cancel
+ConfirmDeleteInventoryItem --> InventoryManagement : Click 'Yes' / deleteInventoryItem()
+ConfirmDeleteInventoryItem --> InventoryManagement : Click 'No'
+
+
+' --- Internal Activities / State Descriptions (Defined AFTER transitions) ---
+
+' Initial States
+RoleSelection : Shows 'Doctor' and 'Admin' buttons
+Dashboard : Shows role-specific options and 'Logout' button
+
+' Main Management State Internal Actions
+PatientManagement : Click 'View Details' / showPatientDetails() ' View handled internally
+PatientManagement : Click 'Admit' / admitPatient()
+PatientManagement : Click 'Discharge' / dischargePatient()
+PatientManagement : Type in Search / filterPatientList()
+
+AppointmentScheduling : Click 'Complete' / completeAppointment()
+AppointmentScheduling : Click 'Cancel' / cancelAppointment()
+AppointmentScheduling : Type in Search / filterAppointmentList()
+
+MedicalRecords : Click 'View Details' / showMedicalRecordDetails() ' View handled internally
+MedicalRecords : Type in Search / filterMedicalRecordList()
+
+BillingManagement : Click 'View Items' / showBillDetails() ' View handled internally
+BillingManagement : Type in Search / filterBillList()
+
+InventoryManagement : Type in Search / filterInventoryList()
+
+' Dialog/Confirmation State Descriptions
+AddPatientDialog : User inputs Name and DOB; Validation occurs
+EditPatientDialog : User inputs new Name
+ConfirmDeletePatient : User confirms (Yes/No) deletion prompt
+
+AddAppointmentDialog : User selects Patient, Date/Time, Type
+EditAppointmentDialog : User modifies Date/Time, Type
+ConfirmDeleteAppointment : User confirms (Yes/No) deletion prompt
+
+AddMedicalRecordDialog : User selects Patient, Appt, Date; Inputs Diagnosis, Notes
+EditMedicalRecordDialog : User modifies Diagnosis, Notes
+ConfirmDeleteMedicalRecord : User confirms (Yes/No) deletion prompt
+
+AddBillDialog : User selects Patient
+AddLineItemDialog : User inputs Description, Amount
+EnterPaymentRefDialog : User inputs Payment Reference
+ConfirmDeleteBill : User confirms (Yes/No) deletion prompt
+
+AddInventoryItemDialog : User inputs Name, Quantity, Price
+EditInventoryItemDialog : User inputs Name, Price
+EnterStockAmountDialog : User inputs Amount
+ConfirmDeleteInventoryItem : User confirms (Yes/No) deletion prompt
+
+@enduml

@@ -1,0 +1,257 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Patient</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.hospitalsystemgpt</a>
+</div>
+
+<h1>Coverage Summary for Class: Patient (com.example.hospitalsystemgpt)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Patient</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$3RC0prld</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$HasqlXA2</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$j4VhwjSJ</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$Lnqop87t</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$mPZYu3DF</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$Mzjlshfl</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$TH8geI2Y</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$wQn8rX4I</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$yRfwzyQP</td>
+  </tr>
+  <tr>
+    <td class="name">Patient$MockitoMock$ScW8xgnB$auxiliary$Z3i4x9ih</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.hospitalsystemgpt;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.time.Period;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;public class Patient {
+&nbsp;    private final String id;
+&nbsp;    private String name;
+&nbsp;    private final LocalDate dateOfBirth;
+&nbsp;    private boolean admitted;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructs a Patient with the given id, name, and date of birth.
+&nbsp;     * Validates that id and name are not null/blank and dateOfBirth is not null or in the future.
+&nbsp;     * Sets admitted to false by default.
+&nbsp;     */
+<b class="fc">&nbsp;    public Patient(String id, String name, LocalDate dateOfBirth) {</b>
+<b class="fc">&nbsp;        if (id == null || id.isBlank()) throw new IllegalArgumentException(&quot;ID cannot be null or blank&quot;);</b>
+<b class="fc">&nbsp;        if (name == null || name.isBlank()) throw new IllegalArgumentException(&quot;Name cannot be null or blank&quot;);</b>
+<b class="fc">&nbsp;        if (dateOfBirth == null || dateOfBirth.isAfter(LocalDate.now())) throw new IllegalArgumentException(&quot;Invalid date of birth&quot;);</b>
+<b class="fc">&nbsp;        this.id = id;</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.dateOfBirth = dateOfBirth;</b>
+<b class="fc">&nbsp;        this.admitted = false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the patient&#39;s unique ID.
+&nbsp;     */
+<b class="fc">&nbsp;    public String getPatientId() { return id; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the patient&#39;s name.
+&nbsp;     *
+&nbsp;     *
+&nbsp;     */
+<b class="fc">&nbsp;    public String getPatientName() { return name; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the patient&#39;s name after validating it is not null or blank.
+&nbsp;     */
+&nbsp;    public void setPatientName(String name) {
+<b class="fc">&nbsp;        if (name == null || name.isBlank()) throw new IllegalArgumentException(&quot;Name cannot be null or blank&quot;);</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the patient&#39;s date of birth.
+&nbsp;     */
+<b class="fc">&nbsp;    public LocalDate getDateOfBirth() { return dateOfBirth; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns true if the patient is currently admitted, false otherwise.
+&nbsp;     */
+<b class="fc">&nbsp;    public boolean isPatientAdmitted() { return admitted; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Calculates and returns the patient&#39;s age in years based on the date of birth.
+&nbsp;     */
+&nbsp;    public int getPatientAge() {
+<b class="fc">&nbsp;        return Period.between(dateOfBirth, LocalDate.now()).getYears();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Marks the patient as admitted (sets admitted to true).
+&nbsp;     */
+<b class="fc">&nbsp;    public void admitPatient() { admitted = true; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Marks the patient as discharged (sets admitted to false).
+&nbsp;     */
+<b class="fc">&nbsp;    public void dischargePatient() { admitted = false; }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks equality based on patient ID.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object o) {
+<b class="fc">&nbsp;        if (this == o) return true;</b>
+<b class="fc">&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc">&nbsp;        Patient patient = (Patient) o;</b>
+<b class="fc">&nbsp;        return id.equals(patient.id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the hash code for the patient, based on ID.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+<b class="fc">&nbsp;        return Objects.hash(id);</b>
+&nbsp;    }
+&nbsp;} 
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-04-19 00:18</div>
+</div>
+</body>
+</html>

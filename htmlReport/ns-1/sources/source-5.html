@@ -1,0 +1,307 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > HospitalController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.hospitalsystemgpt</a>
+</div>
+
+<h1>Coverage Summary for Class: HospitalController (com.example.hospitalsystemgpt)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HospitalController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    32.1%
+  </span>
+  <span class="absValue">
+    (9/28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    14.8%
+  </span>
+  <span class="absValue">
+    (8/54)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    36.7%
+  </span>
+  <span class="absValue">
+    (22/60)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.hospitalsystemgpt;
+&nbsp;
+&nbsp;/**
+&nbsp; * Controller for coordinating hospital workflows between services and the GUI.
+&nbsp; */
+&nbsp;public class HospitalController {
+&nbsp;    private final PatientService patientService;
+&nbsp;    private final AppointmentService appointmentService;
+&nbsp;    private final MedicalRecordService medicalRecordService;
+&nbsp;    private final BillingService billingService;
+&nbsp;    private final InventoryService inventoryService;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructs a HospitalController with all service dependencies.
+&nbsp;     */
+&nbsp;    public HospitalController(PatientService patientService,
+&nbsp;                             AppointmentService appointmentService,
+&nbsp;                             MedicalRecordService medicalRecordService,
+&nbsp;                             BillingService billingService,
+<b class="fc">&nbsp;                             InventoryService inventoryService) {</b>
+<b class="fc">&nbsp;        this.patientService = patientService;</b>
+<b class="fc">&nbsp;        this.appointmentService = appointmentService;</b>
+<b class="fc">&nbsp;        this.medicalRecordService = medicalRecordService;</b>
+<b class="fc">&nbsp;        this.billingService = billingService;</b>
+<b class="fc">&nbsp;        this.inventoryService = inventoryService;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Registers a new patient. */
+&nbsp;    public void registerPatient(Patient patient) {
+<b class="pc">&nbsp;        if (patientService == null) throw new IllegalStateException(&quot;PatientService not initialized&quot;);</b>
+<b class="fc">&nbsp;        patientService.registerPatient(patient);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Finds a patient by ID. */
+&nbsp;    public Patient findPatientById(String id) {
+<b class="nc">&nbsp;        if (patientService == null) throw new IllegalStateException(&quot;PatientService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return patientService.findPatientById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Gets all patients. */
+&nbsp;    public java.util.List&lt;Patient&gt; getAllPatients() {
+<b class="nc">&nbsp;        if (patientService == null) throw new IllegalStateException(&quot;PatientService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return patientService.getAllPatients();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Updates a patient. */
+&nbsp;    public void updatePatient(Patient patient) {
+<b class="nc">&nbsp;        if (patientService == null) throw new IllegalStateException(&quot;PatientService not initialized&quot;);</b>
+<b class="nc">&nbsp;        patientService.updatePatient(patient);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Deletes a patient by ID. */
+&nbsp;    public boolean deletePatient(String id) {
+<b class="nc">&nbsp;        if (patientService == null) throw new IllegalStateException(&quot;PatientService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return patientService.deletePatient(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Schedules a new appointment. */
+&nbsp;    public void scheduleAppointment(Appointment appointment) {
+<b class="pc">&nbsp;        if (appointmentService == null) throw new IllegalStateException(&quot;AppointmentService not initialized&quot;);</b>
+<b class="fc">&nbsp;        appointmentService.scheduleAppointment(appointment);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Finds an appointment by ID. */
+&nbsp;    public Appointment findAppointmentById(String id) {
+<b class="nc">&nbsp;        if (appointmentService == null) throw new IllegalStateException(&quot;AppointmentService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return appointmentService.findAppointmentById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Gets all appointments. */
+&nbsp;    public java.util.List&lt;Appointment&gt; getAllAppointments() {
+<b class="nc">&nbsp;        if (appointmentService == null) throw new IllegalStateException(&quot;AppointmentService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return appointmentService.getAllAppointments();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Updates an appointment. */
+&nbsp;    public void updateAppointment(Appointment appointment) {
+<b class="nc">&nbsp;        if (appointmentService == null) throw new IllegalStateException(&quot;AppointmentService not initialized&quot;);</b>
+<b class="nc">&nbsp;        appointmentService.updateAppointment(appointment);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Cancels an appointment by ID. */
+&nbsp;    public boolean cancelAppointment(String id) {
+<b class="nc">&nbsp;        if (appointmentService == null) throw new IllegalStateException(&quot;AppointmentService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return appointmentService.cancelAppointment(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Deletes an appointment by ID. */
+&nbsp;    public boolean deleteAppointment(String id) {
+<b class="nc">&nbsp;        if (appointmentService == null) throw new IllegalStateException(&quot;AppointmentService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return appointmentService.deleteAppointment(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Adds a new medical record. */
+&nbsp;    public void addMedicalRecord(MedicalRecord record) {
+<b class="pc">&nbsp;        if (medicalRecordService == null) throw new IllegalStateException(&quot;MedicalRecordService not initialized&quot;);</b>
+<b class="fc">&nbsp;        medicalRecordService.addMedicalRecord(record);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Finds a medical record by ID. */
+&nbsp;    public MedicalRecord findMedicalRecordById(String id) {
+<b class="nc">&nbsp;        if (medicalRecordService == null) throw new IllegalStateException(&quot;MedicalRecordService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return medicalRecordService.findMedicalRecordById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Gets all medical records. */
+&nbsp;    public java.util.List&lt;MedicalRecord&gt; getAllMedicalRecords() {
+<b class="nc">&nbsp;        if (medicalRecordService == null) throw new IllegalStateException(&quot;MedicalRecordService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return medicalRecordService.getAllMedicalRecords();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Updates a medical record. */
+&nbsp;    public void updateMedicalRecord(MedicalRecord record) {
+<b class="nc">&nbsp;        if (medicalRecordService == null) throw new IllegalStateException(&quot;MedicalRecordService not initialized&quot;);</b>
+<b class="nc">&nbsp;        medicalRecordService.updateMedicalRecord(record);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Deletes a medical record by ID. */
+&nbsp;    public boolean deleteMedicalRecord(String id) {
+<b class="nc">&nbsp;        if (medicalRecordService == null) throw new IllegalStateException(&quot;MedicalRecordService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return medicalRecordService.deleteMedicalRecord(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Creates a new bill. */
+&nbsp;    public void createBill(Bill bill) {
+<b class="pc">&nbsp;        if (billingService == null) throw new IllegalStateException(&quot;BillingService not initialized&quot;);</b>
+<b class="fc">&nbsp;        billingService.createBill(bill);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Finds a bill by ID. */
+&nbsp;    public Bill findBillById(String id) {
+<b class="nc">&nbsp;        if (billingService == null) throw new IllegalStateException(&quot;BillingService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return billingService.findBillById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Gets all bills. */
+&nbsp;    public java.util.List&lt;Bill&gt; getAllBills() {
+<b class="nc">&nbsp;        if (billingService == null) throw new IllegalStateException(&quot;BillingService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return billingService.getAllBills();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Updates a bill. */
+&nbsp;    public void updateBill(Bill bill) {
+<b class="nc">&nbsp;        if (billingService == null) throw new IllegalStateException(&quot;BillingService not initialized&quot;);</b>
+<b class="nc">&nbsp;        billingService.updateBill(bill);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Marks a bill as paid. */
+&nbsp;    public void markBillAsPaid(String billId, String paymentReference) {
+<b class="pc">&nbsp;        if (billingService == null) throw new IllegalStateException(&quot;BillingService not initialized&quot;);</b>
+<b class="fc">&nbsp;        billingService.markBillAsPaid(billId, paymentReference);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Deletes a bill by ID. */
+&nbsp;    public boolean deleteBill(String id) {
+<b class="nc">&nbsp;        if (billingService == null) throw new IllegalStateException(&quot;BillingService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return billingService.deleteBill(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Adds a new inventory item. */
+&nbsp;    public void addInventoryItem(InventoryItem item) {
+<b class="pc">&nbsp;        if (inventoryService == null) throw new IllegalStateException(&quot;InventoryService not initialized&quot;);</b>
+<b class="fc">&nbsp;        inventoryService.addInventoryItem(item);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Finds an inventory item by ID. */
+&nbsp;    public InventoryItem findInventoryItemById(String id) {
+<b class="nc">&nbsp;        if (inventoryService == null) throw new IllegalStateException(&quot;InventoryService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return inventoryService.findInventoryItemById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Gets all inventory items. */
+&nbsp;    public java.util.List&lt;InventoryItem&gt; getAllInventoryItems() {
+<b class="nc">&nbsp;        if (inventoryService == null) throw new IllegalStateException(&quot;InventoryService not initialized&quot;);</b>
+<b class="nc">&nbsp;        return inventoryService.getAllInventoryItems();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Updates an inventory item. */
+&nbsp;    public void updateInventoryItem(InventoryItem item) {
+<b class="pc">&nbsp;        if (inventoryService == null) throw new IllegalStateException(&quot;InventoryService not initialized&quot;);</b>
+<b class="fc">&nbsp;        inventoryService.updateInventoryItem(item);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Deletes an inventory item by ID. */
+&nbsp;    public boolean deleteInventoryItem(String id) {
+<b class="pc">&nbsp;        if (inventoryService == null) throw new IllegalStateException(&quot;InventoryService not initialized&quot;);</b>
+<b class="fc">&nbsp;        return inventoryService.deleteInventoryItem(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Add more methods as needed for viewing, updating, deleting, and cross-service workflows.
+&nbsp;} 
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-04-19 00:18</div>
+</div>
+</body>
+</html>
